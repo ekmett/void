@@ -1,0 +1,23 @@
+name:          void
+category:      Data Structures
+version:       0.1
+license:       BSD3
+cabal-version: >= 1.6
+license-file:  LICENSE
+author:        Edward A. Kmett
+maintainer:    Edward A. Kmett <ekmett@gmail.com>
+stability:     portable
+homepage:      http://github.com/ekmett/void
+copyright:     Copyright (C) 2008-2011 Edward A. Kmett
+synopsis:      A logically uninhabited data type
+description:   A logically uninhabited data type
+build-type:    Simple
+
+source-repository head
+  type: git
+  location: git://github.com/ekmett/void.git
+
+library
+  build-depends: base >= 3 && < 10
+  exposed-modules: Data.Void
+  ghc-options: -Wall 
