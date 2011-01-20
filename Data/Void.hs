@@ -9,7 +9,7 @@
 -- Portability :  portable
 --
 ----------------------------------------------------------------------------
-module Data.Void where
+module Data.Void (Void, void) where
 
 newtype Void = Void Void deriving (Eq,Ord,Show,Read)
 
