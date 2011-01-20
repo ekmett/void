@@ -11,9 +11,7 @@
 ----------------------------------------------------------------------------
 module Data.Void where
 
-import Prelude ()
-
-newtype Void = Void Void
+newtype Void = Void Void deriving (Eq,Ord,Show,Read)
 
 void :: Void -> a
 void (Void a) = void a
