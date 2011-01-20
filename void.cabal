@@ -9,8 +9,8 @@ maintainer:    Edward A. Kmett <ekmett@gmail.com>
 stability:     portable
 homepage:      http://github.com/ekmett/void
 copyright:     Copyright (C) 2008-2011 Edward A. Kmett
-synopsis:      A logically uninhabited data type
-description:   A logically uninhabited data type
+synopsis:      A Haskell 98 logically uninhabited data type
+description:   A Haskell 98 logically uninhabited data type. Used to indicate that a given term should not exist.
 build-type:    Simple
 
 source-repository head
