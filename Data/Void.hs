@@ -11,9 +11,14 @@
 ----------------------------------------------------------------------------
 module Data.Void (Void, absurd) where
 
+import Data.Semigroup (Semigroup(..))
+
 newtype Void = Void Void deriving (Eq,Ord,Show,Read)
 
 -- | Since Void values are logically uninhabited, this witnesses the logical
 -- reasoning tool of 'ex falso quodlibet'.
 absurd :: Void -> a
 absurd (Void a) = absurd a
+
+instance Semigroup Void where
+  a <> _ = a
