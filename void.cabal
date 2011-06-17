@@ -1,6 +1,6 @@
 name:          void
 category:      Data Structures
-version:       0.5.2
+version:       0.5.3
 license:       BSD3
 cabal-version: >= 1.6
 license-file:  LICENSE
@@ -17,7 +17,14 @@ source-repository head
   type: git
   location: git://github.com/ekmett/void.git
 
+flag DeriveDataTypeable
+  manual: False
+  default: True
+
 library
   build-depends: base >= 3 && < 10, semigroups >= 0.5 && < 0.6
   exposed-modules: Data.Void
   ghc-options: -Wall 
+  if flag(DeriveDataTypeable)
+    extensions: DeriveDataTypeable
+    cpp-options: -DLANGUAGE_DeriveDataTypeable

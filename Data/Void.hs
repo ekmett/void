@@ -14,19 +14,18 @@ module Data.Void (Void, absurd) where
 
 import Data.Semigroup (Semigroup(..))
 import Data.Ix
-#ifdef GLASGOW_HASKELL > 610
+#ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
-import Data.Typeable
 #endif
 
-#ifdef GLASGOW_HASKELL < 700
+#if GLASGOW_HASKELL < 700
 data Void = Void !Void 
 #else
 newtype Void = Void Void
 #endif
   deriving 
   ( Eq, Ord, Show, Read
-#ifdef GLASGOW_HASKELL > 610
+#ifdef LANGUAGE_DeriveDataTypeable
   , Data, Typeable
 #endif
   )
