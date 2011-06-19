@@ -10,12 +10,17 @@
 -- Portability :  portable
 --
 ----------------------------------------------------------------------------
-module Data.Void (Void, absurd) where
+module Data.Void (Void, absurd, vacuous) where
 
 import Data.Semigroup (Semigroup(..))
 import Data.Ix
+
 #ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
+#endif
+
+#ifdef GLASGOW_HASKELL
+import Unsafe.Coerce
 #endif
 
 #if GLASGOW_HASKELL < 700
@@ -34,6 +39,14 @@ newtype Void = Void Void
 -- reasoning tool of 'ex falso quodlibet'.
 absurd :: Void -> a
 absurd (Void a) = absurd a
+
+vacuous :: Functor f => f Void -> f a
+#ifdef GLASGOW_HASKELL
+vacuous = unsafeCoerce
+#else
+-- other haskell compilers are free to use less homogeneous representations
+vacuous = fmap absurd
+#endif
 
 instance Semigroup Void where
   a <> _ = a
