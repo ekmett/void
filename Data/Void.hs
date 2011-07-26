@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.Void
@@ -19,11 +18,11 @@ import Data.Ix
 import Data.Data
 #endif
 
-#ifdef GLASGOW_HASKELL
+#ifdef __GLASGOW_HASKELL__
 import Unsafe.Coerce
 #endif
 
-#if GLASGOW_HASKELL < 700
+#if __GLASGOW_HASKELL__ < 700
 data Void = Void !Void 
 #else
 newtype Void = Void Void
@@ -41,7 +40,7 @@ absurd :: Void -> a
 absurd (Void a) = absurd a
 
 vacuous :: Functor f => f Void -> f a
-#ifdef GLASGOW_HASKELL
+#ifdef __GLASGOW_HASKELL__
 vacuous = unsafeCoerce
 #else
 -- other haskell compilers are free to use less homogeneous representations
