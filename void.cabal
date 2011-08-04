@@ -28,7 +28,7 @@ library
     Data.Void
   build-depends: 
     base >= 3 && < 10,
-    semigroups >= 0.6 && < 0.7
+    semigroups >= 0.7.1 && < 0.8
 
   ghc-options: -Wall 
 
