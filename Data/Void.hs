@@ -49,7 +49,7 @@ vacuous = fmap absurd
 
 instance Semigroup Void where
   a <> _ = a
-  replicate1p _ a = a
+  times1p _ a = a
 
 instance Ix Void where
   range _ = []
