@@ -1,6 +1,6 @@
 name:          void
 category:      Data Structures
-version:       0.5.5
+version:       0.5.5.1
 license:       BSD3
 cabal-version: >= 1.6
 license-file:  LICENSE
@@ -22,15 +22,15 @@ flag DeriveDataTypeable
   default: True
 
 library
-  extensions: 
+  extensions:
     CPP
-  exposed-modules: 
+  exposed-modules:
     Data.Void
-  build-depends: 
+  build-depends:
     base >= 3 && < 10,
-    semigroups >= 0.8 && < 0.9
+    semigroups >= 0.8.2 && < 0.9
 
-  ghc-options: -Wall 
+  ghc-options: -Wall
 
   if flag(DeriveDataTypeable)
     extensions: DeriveDataTypeable
