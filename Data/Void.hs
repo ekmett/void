@@ -9,8 +9,9 @@
 -- Portability :  portable
 --
 ----------------------------------------------------------------------------
-module Data.Void (Void, absurd, vacuous) where
+module Data.Void (Void, absurd, vacuous, vacuousM) where
 
+import Control.Monad (liftM)
 import Data.Semigroup (Semigroup(..))
 import Data.Ix
 
@@ -23,11 +24,11 @@ import Unsafe.Coerce
 #endif
 
 #if __GLASGOW_HASKELL__ < 700
-data Void = Void !Void 
+data Void = Void !Void
 #else
 newtype Void = Void Void
 #endif
-  deriving 
+  deriving
   ( Eq, Ord, Show, Read
 #ifdef LANGUAGE_DeriveDataTypeable
   , Data, Typeable
@@ -47,6 +48,13 @@ vacuous = unsafeCoerce
 vacuous = fmap absurd
 #endif
 
+vacuousM :: Monad m => m Void -> m a
+#ifdef __GLASGOW_HASKELL__
+vacuousM = unsafeCoerce
+#else
+vacuousM = liftM absurd
+#endif
+
 instance Semigroup Void where
   a <> _ = a
   times1p _ a = a
@@ -55,4 +63,4 @@ instance Ix Void where
   range _ = []
   index _ = absurd
   inRange _ = absurd
-  rangeSize _ = 0 
+  rangeSize _ = 0
