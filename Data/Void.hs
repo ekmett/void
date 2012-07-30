@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.Void
@@ -11,7 +12,6 @@
 ----------------------------------------------------------------------------
 module Data.Void (Void, absurd, vacuous, vacuousM) where
 
-import Control.Monad (liftM)
 import Data.Semigroup (Semigroup(..))
 import Data.Ix
 
@@ -21,8 +21,11 @@ import Data.Data
 
 #ifdef __GLASGOW_HASKELL__
 import Unsafe.Coerce
+#else
+import Control.Monad (liftM)
 #endif
 
+-- | A logically uninhabited data type.
 #if __GLASGOW_HASKELL__ < 700
 data Void = Void !Void
 #else
@@ -38,8 +41,11 @@ newtype Void = Void Void
 -- | Since Void values are logically uninhabited, this witnesses the logical
 -- reasoning tool of 'ex falso quodlibet'.
 absurd :: Void -> a
-absurd (Void a) = absurd a
+absurd a = a `seq` spin a where
+   spin (Void b) = spin b
 
+-- | If 'Void' is uninhabited then any 'Functor' that holds values of type 'Void'
+-- is holding no values.
 vacuous :: Functor f => f Void -> f a
 #ifdef __GLASGOW_HASKELL__
 vacuous = unsafeCoerce
@@ -48,6 +54,8 @@ vacuous = unsafeCoerce
 vacuous = fmap absurd
 #endif
 
+-- | If 'Void' is uninhabited then any 'Monad' that holds values of type 'Void'
+-- is holding no values.
 vacuousM :: Monad m => m Void -> m a
 #ifdef __GLASGOW_HASKELL__
 vacuousM = unsafeCoerce
