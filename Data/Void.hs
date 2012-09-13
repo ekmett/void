@@ -38,19 +38,19 @@ newtype Void = Void Void
 #endif
   )
 
--- | Since Void values are logically uninhabited, this witnesses the logical
--- reasoning tool of 'ex falso quodlibet'.
+-- | Since 'Void' values logically don't exist, this witnesses the logical
+-- reasoning tool of \"ex falso quodlibet\".
 absurd :: Void -> a
 absurd a = a `seq` spin a where
    spin (Void b) = spin b
 
--- | If 'Void' is uninhabited then any 'Functor' that holds values of type 'Void'
+-- | If 'Void' is uninhabited then any 'Functor' that holds only values of type 'Void'
 -- is holding no values.
 vacuous :: Functor f => f Void -> f a
 #ifdef __GLASGOW_HASKELL__
 vacuous = unsafeCoerce
 #else
--- other haskell compilers are free to use less homogeneous representations
+-- other haskell compilers are free to use less homogeneous representations (NHC does, for instance)
 vacuous = fmap absurd
 #endif
 
