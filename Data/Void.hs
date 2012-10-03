@@ -32,11 +32,17 @@ data Void = Void !Void
 newtype Void = Void Void
 #endif
   deriving
-  ( Eq, Ord, Show, Read
+  ( Show, Read
 #ifdef LANGUAGE_DeriveDataTypeable
   , Data, Typeable
 #endif
   )
+
+instance Eq Void where
+  _ == _ = True
+
+instance Ord Void where
+  compare _ _ = EQ
 
 -- | Since 'Void' values logically don't exist, this witnesses the logical
 -- reasoning tool of \"ex falso quodlibet\".
