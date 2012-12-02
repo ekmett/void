@@ -12,17 +12,12 @@
 ----------------------------------------------------------------------------
 module Data.Void (Void, absurd, vacuous, vacuousM) where
 
-import Data.Semigroup (Semigroup(..))
 import Data.Ix
+import Control.Monad (liftM)
+import Data.Semigroup (Semigroup(..))
 
 #ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
-#endif
-
-#ifdef __GLASGOW_HASKELL__
-import Unsafe.Coerce
-#else
-import Control.Monad (liftM)
 #endif
 
 -- | A logically uninhabited data type.
@@ -53,21 +48,12 @@ absurd a = a `seq` spin a where
 -- | If 'Void' is uninhabited then any 'Functor' that holds only values of type 'Void'
 -- is holding no values.
 vacuous :: Functor f => f Void -> f a
-#ifdef __GLASGOW_HASKELL__
-vacuous = unsafeCoerce
-#else
--- other haskell compilers are free to use less homogeneous representations (NHC does, for instance)
 vacuous = fmap absurd
-#endif
 
 -- | If 'Void' is uninhabited then any 'Monad' that holds values of type 'Void'
 -- is holding no values.
 vacuousM :: Monad m => m Void -> m a
-#ifdef __GLASGOW_HASKELL__
-vacuousM = unsafeCoerce
-#else
 vacuousM = liftM absurd
-#endif
 
 instance Semigroup Void where
   a <> _ = a
