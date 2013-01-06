@@ -30,7 +30,7 @@ library
     Data.Void.Unsafe
 
   build-depends:
-    base       >= 3 && < 10,
+    base       >= 3,
     semigroups >= 0.8.2
 
   ghc-options: -Wall
