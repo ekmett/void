@@ -10,7 +10,12 @@
 -- Portability :  portable
 --
 ----------------------------------------------------------------------------
-module Data.Void (Void, absurd, vacuous, vacuousM) where
+module Data.Void
+  ( Void
+  , absurd
+  , vacuous
+  , vacuousM
+  ) where
 
 import Data.Ix
 import Control.Monad (liftM)

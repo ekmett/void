@@ -20,16 +20,23 @@ source-repository head
   type: git
   location: git://github.com/ekmett/void.git
 
+flag safe
+  manual: True
+  default: False
+
 library
-  extensions:
-    CPP
   exposed-modules:
     Data.Void
+    Data.Void.Unsafe
+
   build-depends:
     base >= 3 && < 10,
     semigroups >= 0.8.2 && < 0.9
 
   ghc-options: -Wall
+
+  if flag(safe)
+    cpp-options: -DSAFE
 
   if impl(ghc)
     extensions: DeriveDataTypeable
