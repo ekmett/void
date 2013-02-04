@@ -42,8 +42,10 @@ instance Ord Void where
   compare _ _ = EQ
 
 instance Show Void where
-  show = absurd
+  showsPrec _ = absurd
 
+-- | Reading a 'Void' value is always a parse error, considering 'Void' as
+-- a data type with no constructors.
 instance Read Void where
   readsPrec _ _ = []
 
