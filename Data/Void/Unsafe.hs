@@ -1,5 +1,5 @@
 {-# LANGUAGE CPP #-}
-#if !defined(SAFE) && defined(__GLASGOW_HASKELL__) && __GLASGOW_HASKELL__ >= 702
+#if !defined(SAFE) && defined(__GLASGOW_HASKELL__) && __GLASGOW_HASKELL__ >= 704
 #define UNSAFE
 {-# LANGUAGE Unsafe #-}
 #endif
