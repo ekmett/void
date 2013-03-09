@@ -31,18 +31,23 @@ data Void = Void !Void
 #else
 newtype Void = Void Void
 #endif
-  deriving
-  ( Show, Read
 #ifdef LANGUAGE_DeriveDataTypeable
-  , Data, Typeable
+  deriving (Data, Typeable)
 #endif
-  )
 
 instance Eq Void where
   _ == _ = True
 
 instance Ord Void where
   compare _ _ = EQ
+
+instance Show Void where
+  showsPrec _ = absurd
+
+-- | Reading a 'Void' value is always a parse error, considering 'Void' as
+-- a data type with no constructors.
+instance Read Void where
+  readsPrec _ _ = []
 
 -- | Since 'Void' values logically don't exist, this witnesses the logical
 -- reasoning tool of \"ex falso quodlibet\".
