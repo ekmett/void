@@ -1,4 +1,11 @@
 {-# LANGUAGE CPP #-}
+#ifdef LANGUAGE_DeriveDataTypeable
+{-# LANGUAGE DeriveDataTypeable #-}
+#endif
+#ifdef LANGUAGE_DeriveGeneric
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE StandaloneDeriving #-}
+#endif
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Data.Void
@@ -24,6 +31,9 @@ import Data.Semigroup (Semigroup(..))
 #ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
 #endif
+#ifdef LANGUAGE_DeriveGeneric
+import GHC.Generics
+#endif
 
 -- | A logically uninhabited data type.
 #if __GLASGOW_HASKELL__ < 700
@@ -33,6 +43,10 @@ newtype Void = Void Void
 #endif
 #ifdef LANGUAGE_DeriveDataTypeable
   deriving (Data, Typeable)
+#endif
+
+#ifdef LANGUAGE_DeriveGeneric
+deriving instance Generic Void
 #endif
 
 instance Eq Void where

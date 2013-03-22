@@ -40,5 +40,11 @@ library
     cpp-options: -DSAFE
 
   if impl(ghc)
-    extensions: DeriveDataTypeable
+    other-extensions: DeriveDataTypeable
     cpp-options: -DLANGUAGE_DeriveDataTypeable
+
+  if impl(ghc >= 7.2)
+    other-extensions: StandaloneDeriving
+    -- other-extensions: DeriveGeneric isn't known to cabal yet
+    cpp-options: -DLANGUAGE_DeriveGeneric
+    build-depends: ghc-prim
