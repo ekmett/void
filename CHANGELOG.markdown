@@ -1,5 +1,6 @@
 0.6
 ---
+* `instance Exception Void`
 * `instance Generic Void`
 * `instance Hashable Void`
 

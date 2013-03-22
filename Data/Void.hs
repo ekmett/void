@@ -1,15 +1,20 @@
 {-# LANGUAGE CPP #-}
+
 #ifdef LANGUAGE_DeriveDataTypeable
 {-# LANGUAGE DeriveDataTypeable #-}
 #endif
+
 #ifdef LANGUAGE_DeriveGeneric
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE StandaloneDeriving #-}
 #endif
+
+#ifndef MIN_VERSION_base
+#define MIN_VERSION_base(x,y,z) 1
+#endif
 -----------------------------------------------------------------------------
 -- |
--- Module      :  Data.Void
--- Copyright   :  (C) 2008-2011 Edward Kmett
+-- Copyright   :  (C) 2008-2013 Edward Kmett
 -- License     :  BSD-style (see the file LICENSE)
 --
 -- Maintainer  :  Edward Kmett <ekmett@gmail.com>
@@ -28,11 +33,17 @@ import Control.Monad (liftM)
 import Data.Ix
 import Data.Hashable
 import Data.Semigroup (Semigroup(..))
+
 #ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
 #endif
+
 #ifdef LANGUAGE_DeriveGeneric
 import GHC.Generics
+#endif
+
+#if MIN_VERSION_base(4,0,0)
+import Control.Exception
 #endif
 
 -- | A logically uninhabited data type.
@@ -91,3 +102,7 @@ instance Ix Void where
   index _ = absurd
   inRange _ = absurd
   rangeSize _ = 0
+
+#if MIN_VERSION_base(4,0,0)
+instance Exception Void
+#endif
