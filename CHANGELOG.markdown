@@ -1,3 +1,7 @@
+0.6
+---
+* instance Hashable Void
+
 0.5.12
 ------
 * Fixed compatibility with GHC 7.2 (#6)

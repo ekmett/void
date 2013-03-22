@@ -17,10 +17,10 @@ module Data.Void
   , vacuousM
   ) where
 
-import Data.Ix
 import Control.Monad (liftM)
+import Data.Ix
+import Data.Hashable
 import Data.Semigroup (Semigroup(..))
-
 #ifdef LANGUAGE_DeriveDataTypeable
 import Data.Data
 #endif
@@ -37,6 +37,9 @@ newtype Void = Void Void
 
 instance Eq Void where
   _ == _ = True
+
+instance Hashable Void where
+  hashWithSalt _ = absurd
 
 instance Ord Void where
   compare _ _ = EQ

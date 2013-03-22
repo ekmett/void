@@ -1,6 +1,6 @@
 name:          void
 category:      Data Structures
-version:       0.5.12
+version:       0.6
 license:       BSD3
 cabal-version: >= 1.6
 license-file:  LICENSE
@@ -31,6 +31,7 @@ library
 
   build-depends:
     base       >= 3 && < 10,
+    hashable   >= 1.1,
     semigroups >= 0.8.2
 
   ghc-options: -Wall
