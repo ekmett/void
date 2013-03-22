@@ -1,6 +1,7 @@
 0.6
 ---
-* instance Hashable Void
+* `instance Generic Void`
+* `instance Hashable Void`
 
 0.5.12
 ------
