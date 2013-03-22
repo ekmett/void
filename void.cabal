@@ -25,6 +25,7 @@ flag safe
   default: False
 
 library
+  hs-source-dirs: src
   exposed-modules:
     Data.Void
     Data.Void.Unsafe
