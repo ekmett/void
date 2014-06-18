@@ -2,7 +2,7 @@ name:          void
 category:      Data Structures
 version:       0.6.1
 license:       BSD3
-cabal-version: >= 1.6
+cabal-version: >= 1.10
 license-file:  LICENSE
 author:        Edward A. Kmett
 maintainer:    Edward A. Kmett <ekmett@gmail.com>
