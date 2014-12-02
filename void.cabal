@@ -1,6 +1,6 @@
 name:          void
 category:      Data Structures
-version:       0.6.1.1
+version:       0.7
 license:       BSD3
 cabal-version: >= 1.10
 license-file:  LICENSE
@@ -33,8 +33,11 @@ flag safe
 library
   hs-source-dirs: src
   exposed-modules:
-    Data.Void
     Data.Void.Unsafe
+
+  if !impl(ghc>=7.9)
+    hs-source-dirs: src-old
+    exposed-modules: Data.Void
 
   build-depends:
     base       >= 3 && < 10,
