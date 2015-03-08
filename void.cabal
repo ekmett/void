@@ -9,7 +9,7 @@ maintainer:    Edward A. Kmett <ekmett@gmail.com>
 stability:     portable
 homepage:      http://github.com/ekmett/void
 bug-reports:   http://github.com/ekmett/void/issues
-copyright:     Copyright (C) 2008-2013 Edward A. Kmett
+copyright:     Copyright (C) 2008-2015 Edward A. Kmett
 synopsis:      A Haskell 98 logically uninhabited data type
 description:   A Haskell 98 logically uninhabited data type, used to indicate that a given term should not exist.
 build-type:    Simple
