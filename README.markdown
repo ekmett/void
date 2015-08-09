@@ -1,7 +1,7 @@
 void
 ====
 
-[![Hackage](https://img.shields.io/hackage/v/void.svg)](https://hackage.haskell.org/package/void) [![Build Status](https://secure.travis-ci.org/ekmett/void.png?branch=master)](http://travis-ci.org/ekmett/void
+[![Hackage](https://img.shields.io/hackage/v/void.svg)](https://hackage.haskell.org/package/void) [![Build Status](https://secure.travis-ci.org/ekmett/void.png?branch=master)](http://travis-ci.org/ekmett/void)
 
 This package provides a canonical 'uninhabited' data type for Haskell. This arises in a surprisingly wide array of situations in practice.
 
