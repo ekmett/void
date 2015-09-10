@@ -41,7 +41,8 @@ library
     exposed-modules: Data.Void
 
   build-depends:
-    base       >= 3 && < 10,
+    base       >= 3   && < 10,
+    deepseq    >= 1.1 && < 1.5,
     hashable   >= 1.1,
     semigroups >= 0.8.2
 
