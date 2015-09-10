@@ -32,6 +32,7 @@ module Data.Void
   , vacuousM
   ) where
 
+import Control.DeepSeq (NFData(..))
 import Control.Monad (liftM)
 import Data.Ix
 import Data.Hashable
@@ -109,3 +110,7 @@ instance Ix Void where
 #if MIN_VERSION_base(4,0,0)
 instance Exception Void
 #endif
+
+-- | Defined as @'rnf' = 'absurd'@.
+instance NFData Void where
+  rnf = absurd
