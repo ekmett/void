@@ -1,6 +1,7 @@
 0.7.1
 -----
 * Support `semigroups` 0.17 on older GHCs
+* Backported `NFData`'s `semigroup` instance to older GHCs.
 
 0.7
 ---
