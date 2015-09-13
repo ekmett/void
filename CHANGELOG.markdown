@@ -1,3 +1,7 @@
+0.7.1
+-----
+* Support `semigroups` 0.17 on older GHCs
+
 0.7
 ---
 * adapt to `Data.Void` being moved into `base-4.8`

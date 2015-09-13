@@ -15,6 +15,10 @@
 #ifndef MIN_VERSION_base
 #define MIN_VERSION_base(x,y,z) 1
 #endif
+
+#ifndef MIN_VERSION_semigroups
+#define MIN_VERSION_semigroups(x,y,z) 1
+#endif
 -----------------------------------------------------------------------------
 -- |
 -- Copyright   :  (C) 2008-2015 Edward Kmett
@@ -98,7 +102,11 @@ vacuousM = liftM absurd
 
 instance Semigroup Void where
   a <> _ = a
+#if MIN_VERSION_semigroups(0,17,0)
+  stimes _ a = a
+#else
   times1p _ a = a
+#endif
 
 instance Ix Void where
   range _ = []
