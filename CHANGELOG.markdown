@@ -1,3 +1,7 @@
+0.7.2
+-----
+* Only depend on `deepseq`, `hashable`, and `semigroups` if using GHC 7.8 or earlier.
+
 0.7.1
 -----
 * Support `semigroups` 0.17 on older GHCs
