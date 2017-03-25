@@ -1,6 +1,7 @@
 0.7.2
 -----
 * Only depend on `deepseq`, `hashable`, and `semigroups` if using GHC 7.8 or earlier.
+* Cleaned up spurious "redundant constraint" warnings on GHC 8+
 
 0.7.1
 -----
