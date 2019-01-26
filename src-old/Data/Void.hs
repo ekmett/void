@@ -54,6 +54,8 @@ import GHC.Generics
 import Control.Exception
 #endif
 
+import Language.Haskell.TH.Syntax (Lift (..))
+
 -- | A logically uninhabited data type.
 #if __GLASGOW_HASKELL__ < 700
 data Void = Void !Void
@@ -122,3 +124,6 @@ instance Exception Void
 -- | Defined as @'rnf' = 'absurd'@.
 instance NFData Void where
   rnf = absurd
+
+instance Lift Void where
+  lift = return . absurd

@@ -13,3 +13,5 @@ docs
 tags
 wiki
 wip
+dist-newstyle/
+.ghc.environment.*

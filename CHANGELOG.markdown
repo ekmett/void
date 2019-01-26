@@ -1,3 +1,7 @@
+0.7.3
+-----
+* Add `Lift Void` instance
+
 0.7.2
 -----
 * Only depend on `deepseq`, `hashable`, and `semigroups` if using GHC 7.8 or earlier.
