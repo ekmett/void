@@ -1,6 +1,6 @@
-0.7.3
------
-* Add `Lift Void` instance
+0.7.3 [2019.05.10]
+------------------
+* Backport the `Lift Void` instance introduced in `template-haskell-2.15.0.0`.
 
 0.7.2
 -----
