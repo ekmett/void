@@ -27,7 +27,7 @@ import Data.Void
 import Unsafe.Coerce
 #endif
 
--- | If 'Void' is uninhabited than any 'Functor' that holds only values of the type 'Void'
+-- | If 'Void' is uninhabited then any 'Functor' that holds only values of the type 'Void'
 -- is holding no values.
 --
 -- This is only safe for valid functors that do not perform GADT-like analysis on the argument.
