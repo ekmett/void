@@ -13,7 +13,8 @@ copyright:     Copyright (C) 2008-2015 Edward A. Kmett
 synopsis:      A Haskell 98 logically uninhabited data type
 description:   A Haskell 98 logically uninhabited data type, used to indicate that a given term should not exist.
 build-type:    Simple
-tested-with:   GHC==8.8.1
+tested-with:   GHC==8.10.1
+             , GHC==8.8.1
              , GHC==8.6.5
              , GHC==8.4.4
              , GHC==8.2.2
