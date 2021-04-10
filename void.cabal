@@ -14,8 +14,8 @@ synopsis:      A Haskell 98 logically uninhabited data type
 description:   A Haskell 98 logically uninhabited data type, used to indicate that a given term should not exist.
 build-type:    Simple
 tested-with:   GHC==9.0.1
-             , GHC==8.10.1
-             , GHC==8.8.3
+             , GHC==8.10.4
+             , GHC==8.8.4
              , GHC==8.6.5
              , GHC==8.4.4
              , GHC==8.2.2
