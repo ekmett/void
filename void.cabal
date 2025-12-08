@@ -56,7 +56,7 @@ library
   if flag(safe)
     cpp-options: -DSAFE
 
-  if !impl(ghc>=7.9)
+  if !impl(ghc>=7.9) && !impl(mhs)
     hs-source-dirs: src-old
     exposed-modules: Data.Void
     build-depends:
