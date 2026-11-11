@@ -6,7 +6,7 @@
 {-# OPTIONS_GHC -Wno-redundant-constraints #-} -- they aren't redundant!
 -----------------------------------------------------------------------------
 -- |
--- Copyright   :  (C) 2008-2015 Edward Kmett
+-- Copyright   :  (C) 2008-2026 Edward Kmett
 -- License     :  BSD-style (see the file LICENSE)
 --
 -- Maintainer  :  Edward Kmett <ekmett@gmail.com>
