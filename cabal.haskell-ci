@@ -4,5 +4,10 @@ ghc-version-mapping:    9.14.1:9.14.1
 ghcup-jobs:             True
 ghcup-prerelease-jobs:   False
 head-hackage:           False
+docspec:                True
 -- irc-channels:           irc.freenode.org#haskell-lens
 irc-if-in-origin-repo:  True
+
+constraint-set safe
+  constraints: void +safe
+  docspec: True

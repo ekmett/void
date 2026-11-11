@@ -25,10 +25,22 @@ import Data.Void
 import Unsafe.Coerce
 #endif
 
+-- $setup
+-- >>> import Data.Void (Void)
+
 -- | If 'Void' is uninhabited then any 'Functor' that holds only values of the type 'Void'
 -- is holding no values.
 --
 -- This is only safe for valid functors that do not perform GADT-like analysis on the argument.
+--
+-- >>> unsafeVacuous ([] :: [Void]) :: [Int]
+-- []
+--
+-- >>> unsafeVacuous (Nothing :: Maybe Void) :: Maybe Int
+-- Nothing
+--
+-- >>> unsafeVacuous (Left "empty" :: Either String Void) :: Either String Int
+-- Left "empty"
 unsafeVacuous :: Functor f => f Void -> f a
 #ifdef UNSAFE
 unsafeVacuous = unsafeCoerce
@@ -40,6 +52,15 @@ unsafeVacuous = fmap absurd
 -- is holding no values.
 --
 -- This is only safe for valid monads that do not perform GADT-like analysis on the argument.
+--
+-- >>> unsafeVacuousM ([] :: [Void]) :: [Int]
+-- []
+--
+-- >>> unsafeVacuousM (Nothing :: Maybe Void) :: Maybe Int
+-- Nothing
+--
+-- >>> unsafeVacuousM (Left "empty" :: Either String Void) :: Either String Int
+-- Left "empty"
 unsafeVacuousM :: Monad m => m Void -> m a
 #ifdef UNSAFE
 unsafeVacuousM = unsafeCoerce
